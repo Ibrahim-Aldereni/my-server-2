@@ -21,8 +21,16 @@ mongoose.connect(`${process.env.MONGODB_URI}/myFirstDatabase`, {
 const getAllDataHandler = require("./modules/getAllDataHandler");
 const addFavHandler = require("./modules/addFavHandler");
 const getFavDataHandler = require("./modules/getFavDataHandler");
+const deleteFavDataHandler = require("./modules/deleteFavDataHandler");
+const updateFavDataHandler = require("./modules/updateFavDataHandler");
 
 //////////////////////////////////////////////////////routes//////////////////////////////////////////////
+
+//localhost:3001/updateFavData
+server.put("/updateFavData", updateFavDataHandler);
+
+//localhost:3001/deleteFavData
+server.delete("/deleteFavData/:name", deleteFavDataHandler);
 
 //localhost:3001/getFavData
 server.get("/getFavData", getFavDataHandler);
